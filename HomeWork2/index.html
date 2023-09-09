@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisata Kalsel</title>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Oswald:wght@200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="hero">
+                <h2 class="heading">Pesona Kalsel</h2>
+                <p class="sub-heading">Wisata di Kalimantan Selatan</p>
+            </div>
+            <div class="features feature-1">
+                <h4 class="price">IDR 150K  </h4>
+                <p class="item">Samber Gelap</p>
+            </div>
+            <div class="features feature-2">
+                <h4 class="price">IDR 150K  </h4>
+                <p class="item">Tahura Mandiangin</p>
+            </div>
+            <div class="features feature-3">
+                <h4 class="price">IDR 150K  </h4>
+                <p class="item">Air Terjun Bajuin</p>
+            </div>
+            <div class="features feature-4">
+                <h4 class="price">IDR 150K  </h4>
+                <p class="item">Pantai Batakan Baru</p>
+            </div>
+            <div class="features feature-5">
+                <h4 class="price">IDR 150K  </h4>
+                <p class="item">Restoran Aranio Ramashinta</p>
+            </div>
+        </header>
+
+        <nav class="menu">
+            <div class="menu-toggle">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="wisata">
+                <h1>Pesona Kalsel</h1>
+            </div>
+            <ul class="menu-list">
+                <li><a href="">Home</a></li>
+                <li><a href="">Wisata</a></li>
+                <li><a href="">Galeri</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </nav>
+
+        <section class="services">
+            <div class="service">
+                <div class="icon">🛬</div>
+                    <h3>Aranio Ramashinta</h3>
+                    <p>Wisata kuliner Lesehan Terapung 
+                        Rama Shinta ini berlokasi di Tiwingan Lama Kecamatan Aranio Kabupate Banjar, Kalimantan Selatan.</p>                
+            </div>
+            <div class="service">
+                <div class="icon">🛬</div>
+                    <h3>Air Terjun Bajuin</h3>
+                    <p>Air terjun Bajuin adalah tempat wisata alam yang berada di desa Sungai Bakar, kecamatan Pelaihari, kabupaten Tanah Laut, Kalimantan Selatan. Air terjun Bajuin adalah termpat wisata populer
+                         di kurun waktu 1980 - 1995, namun meredup setelahnya.</p>                
+            </div>
+            <div class="service">
+                <div class="icon">🛬</div>
+                    <h3>Tahura Mandiangin</h3>
+                    <p>Tahura Sultan Adam memiliki luas sekitar 112.000 hektar, wilayah yang sudah dapat dijelajahi oleh wisatawan seluas 200 hektar. Kawasan 
+                        ini juga sudah ditata sedemian rupa untuk menarik wisatawan.</p>                
+            </div>
+            <div class="service">
+                <div class="icon">🛬</div>
+                    <h3>Pantai Batakan Baru</h3>
+                    <p>Pantai Batakan merupakan obyek wisata bahari yang terpadu dengan panorama alam pegunungan pantai yang terletak di kecamatan Panyipatan, Kabupaten Tanah Laut, sekitar 125 kilometer arah timur 
+                        dari Kota Banjarmasin (Ibukota Provinsi Kalimantan Selatan).</p>                
+            </div>
+            <div class="service">
+                <div class="icon">🛬</div>
+                    <h3>Samber Gelap</h3>
+                    <p>Tahura Sultan Adam memiliki luas sekitar 112.000 hektar, wilayah yang sudah dapat dijelajahi oleh wisatawan seluas 200 hektar. Kawasan ini
+                         juga sudah ditata sedemian rupa untuk menarik wisatawan.</p>                
+            </div>
+        </section>
+    </div>
+
+    <section class="gallery">
+        <h2>Gallery</h2>
+        <img src="img/aranio.webp" alt="">
+        <img src="img/Bajuin.jpg" alt="">
+        <img src="img/batakanbaru.jpg" alt="">
+        <img src="img/Bukitbatu.png" alt="">
+        <img src="img/SamberG.jpg" alt="">
+    </section>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav ul');
+
+        menuToggle.addEventListener('click', function(){
+            nav.classList.toggle('slide');
+        });
+    </script>
+
+
+    <div class="footer-content">
+        <h3>Home Work</h3>
+        <p>Nama: Muhammad Rizky Al Farabi</p>
+        <p>Kelas: 5-A FSWD</p>
+        <p>Kelompok: 4</p>
+        <p>copyright &copy;2023 codeOpacity. designed by <span>Farabi</span></p>
+        <ul class="socials">
+            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+        </ul>
+    </div>
+</body>
+</html>
