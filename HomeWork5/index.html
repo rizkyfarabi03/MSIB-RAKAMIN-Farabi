@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran</title>
+    <style>
+        /* Style untuk tab */
+        .tab {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tab Navigation -->
+    <ul>
+        <li><a href="#" onclick="openTab(event, 'registrasi')">Registrasi</a></li>
+        <li><a href="#" onclick="openTab(event, 'listPendaftar')">List Pendaftar</a></li>
+    </ul>
+
+    <!-- Tab Isi -->
+    <div id="registrasi" class="tab">
+        <h2>Form Registrasi</h2>
+        <form id="pendaftaranForm">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required minlength="10"><br><br>
+            
+            <label for="umur">Umur:</label>
+            <input type="number" id="umur" name="umur" required min="25"><br><br>
+            
+            <label for="uangSangu">Uang Sangu (100 ribu - 1 juta):</label>
+            <input type="number" id="uangSangu" name="uangSangu" required min="100000" max="1000000"><br><br>
+
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+
+    <div id="listPendaftar" class="tab">
+        <h2>List Pendaftar</h2>
+        <table id="pendaftarTable" border="1">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Umur</th>
+                    <th>Uang Sangu</th>
+                </tr>
+            </thead>
+            <tbody id="pendaftarData">
+            </tbody>
+        </table>
+        <p id="resume"></p>
+    </div>
+
+    <script>
+        // Fungsi untuk mengganti tab aktif
+        function openTab(event, tabName) {
+            var i, tabcontent;
+            tabcontent = document.getElementsByClassName("tab");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
+        }
+
+        // Inisialisasi tab aktif saat halaman dimuat
+        openTab(event, 'registrasi');
+
+        var pendaftarDataArray = [];
+
+        // Fungsi untuk menambahkan data pendaftar ke tabel
+        function addPendaftar(nama, umur, uangSangu) {
+            var table = document.getElementById("pendaftarTable").getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow(table.rows.length);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            cell1.innerHTML = nama;
+            cell2.innerHTML = umur;
+            cell3.innerHTML = uangSangu;
+        }
+
+        // Fungsi untuk menghitung rata-rata umur dan uang sangu
+        function calculateAverage() {
+            var totalUmur = 0;
+            var totalUangSangu = 0;
+            for (var i = 0; i < pendaftarDataArray.length; i++) {
+                totalUmur += pendaftarDataArray[i].umur;
+                totalUangSangu += pendaftarDataArray[i].uangSangu;
+            }
+            var averageUmur = totalUmur / pendaftarDataArray.length;
+            var averageUangSangu = totalUangSangu / pendaftarDataArray.length;
+            return [averageUmur, averageUangSangu];
+        }
+
+        // Fungsi untuk menampilkan resume
+        function displayResume() {
+            var [averageUmur, averageUangSangu] = calculateAverage();
+            var resumeElement = document.getElementById("resume");
+            resumeElement.innerHTML = `Rata-rata pendaftar memiliki uang sangu sebesar ${averageUangSangu.toFixed(2)} dengan rata-rata umur ${averageUmur.toFixed(2)}`;
+        }
+
+        // Fungsi untuk submit form
+        function submitForm() {
+            var nama = document.getElementById("nama").value;
+            var umur = parseInt(document.getElementById("umur").value);
+            var uangSangu = parseInt(document.getElementById("uangSangu").value);
+
+            // Validasi data
+            if (nama.length < 10 || umur < 25 || uangSangu < 100000 || uangSangu > 1000000) {
+                alert("Data tidak memenuhi kriteria!");
+                return;
+            }
+
+            // Tambahkan data ke array
+            pendaftarDataArray.push({ nama: nama, umur: umur, uangSangu: uangSangu });
+
+            // Tambahkan data ke tabel
+            addPendaftar(nama, umur, uangSangu);
+
+            // Tampilkan resume
+            displayResume();
+
+            // Reset form
+            document.getElementById("pendaftaranForm").reset();
+        }
+    </script>
+</body>
+</html>
