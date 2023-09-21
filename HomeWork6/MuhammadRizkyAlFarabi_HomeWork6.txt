@@ -1,0 +1,45 @@
+#Perintah untuk melakukan create table barang 
+CREATE TABLE IF NOT EXISTS Barang(
+BarangID INT PRIMARY KEY,
+Nama VARCHAR(50)NOT NULL,
+Deskripsi VARCHAR(100)NOT NULL,
+Harga INT NOT NULL,
+Stok INT NOT NULL,
+KategoriID INT NOT NULL
+);
+#
+SELECT * FROM barang;
+
+#
+INSERT INTO barang
+VALUES(1,'Mobil Mainan','cocok untuk anak usia 3-5 Tahun','Rp20.000',5,01),
+(2,'Pistol Mainan','cocok untuk anak usia 6-10 Tahun','Rp30.000',10,02),(3,'Kartu UNO','cocok untuk anak usia 3-5 Tahun','Rp20.000',5,01)
+
+#
+UPDATE barang
+SET nama = 'Mobil Mainan'
+WHERE kategoriid = 11;
+
+#Perintah untuk melakukan create table kategori barang
+CREATE TABLE IF NOT EXISTS KategoriBarang(
+KategoriID INT PRIMARY KEY,
+NamaKategori VARCHAR(100)
+);
+
+#
+SELECT * FROM kategoribarang;
+
+#
+INSERT INTO Kategoribarang
+VALUES(11,'Anak-anak')
+
+#
+UPDATE kategoribarang
+SET namakategori = 'Umum'
+WHERE kategoriid = 02;
+
+
+# Perintah query untuk melakukan join relasi antara barang dan kategori barang
+SELECT brg.barangid, brg.nama, kgb.kategoriid, kgb.namakategori 
+FROM barang brg INNER JOIN Kategoribarang kgb
+ON brg.kategoriid = kgb.kategoriid;
