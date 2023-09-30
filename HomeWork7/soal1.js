@@ -1,4 +1,4 @@
-// Menggunakan modul geometri
+// Menggunakan modul 
 const geometri = require('./modul');
 
 // Menghitung luas dan keliling persegi
