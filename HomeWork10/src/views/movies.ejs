@@ -1,0 +1,45 @@
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Daftar Movie</h2>
+  
+        <a href="/api/v1/movies/add" class="btn btn-primary mb-2"
+          >Tambah Data Movie</a
+        >
+  
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (result.length === 0) { %>
+            <tr>
+              <td colspan="4">
+                <div class="alert alert-danger fw-bold" role="alert">
+                  Data Movie masih kosong.
+                </div>
+              </td>
+            </tr>
+            <% } %> <% result.forEach(movie => { %>
+            <tr>
+              <th><%= movie.id %></th>
+              <td><%= movie.title %></td>
+              <td><%= movie.year %></td>
+              <td>
+                <a
+                  href="/api/v1/movies/<%= movie.id %>"
+                  class="btn btn-success badge rounded-pill"
+                  ><i class="bi bi-info-circle"></i> Detail</a
+                >
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
